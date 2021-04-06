@@ -19,14 +19,14 @@ pipeline {
 
         stage('stage 3') {
             steps {
-                sh 'gcloud builds submit --tag gcr.io/sylvan-terra-309902/external-image:v${BUILD_NUMBER} .'
+                sh 'gcloud builds submit --tag gcr.io/sylvan-terra-309902/external:v1.${BUILD_NUMBER} .'
             }
         }
 
         stage('stage 4') {
             steps {
                 sh 'gcloud container clusters get-credentials devopsgurus-cluster --zone us-east4-c --project sylvan-terra-309902'
-                sh 'kubectl set image deployment/events-external external-image=gcr.io/sylvan-terra-309902/external-image:v${BUILD_NUMBER} --record -n devopsgurus'
+                sh 'kubectl set image deployment/events-external external-image=gcr.io/sylvan-terra-309902/external:v1.${BUILD_NUMBER} --record -n devopsgurus'
             }
         }
     }
