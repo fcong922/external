@@ -26,7 +26,7 @@ pipeline {
         stage('stage 4') {
             steps {
                 sh 'gcloud container clusters get-credentials devopsgurus-cluster --zone us-east4-c --project sylvan-terra-309902'
-                sh 'kubectl set image deployment/events-external external-image=gcr.io/sylvan-terra-309902/external-image:v${BUILD_NUMBER} --record -n development'
+                sh 'kubectl set image deployment/events-external external-image=gcr.io/sylvan-terra-309902/external-image:v${BUILD_NUMBER} --record -n devopsgurus'
             }
         }
     }
