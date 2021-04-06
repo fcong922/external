@@ -18,7 +18,7 @@ spec:
         app: events-external
     spec:
       containers:
-      - image: gcr.io/sylvan-terra-309902/external-image:v2.0.1
+      - image: gcr.io/sylvan-terra-309902/external:v1.0
         name: external-image
         ports:
         - containerPort: 8080
